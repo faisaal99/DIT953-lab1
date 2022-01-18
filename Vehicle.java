@@ -11,8 +11,9 @@ public abstract class Vehicle {
     private double currentSpeed; // The current speed of the car
     private Color color;         // Color of the car
     private String modelName;    // The car model name
-    private int x;
-    private int y;
+    private int x;               // The vehicles x-coordinate
+    private int y;               // The vehicles y-coordinate
+    // todo decide how direction should be represented
 
     public Vehicle(
         int nrDoors, 
@@ -37,17 +38,9 @@ public abstract class Vehicle {
     public int getX()               { return x; }
     public int getY()               { return y; }
 
-    public void setColor(Color clr){
-	    color = clr;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
+    public void setColor(Color clr) { color = clr;}
+    public void setY(int y)         { this.y = y;}
+    public void setX(int x)         { this.x = x;}
 // endof GETTERS n SETTERS
 
     public void incrementSpeed(double amount){
