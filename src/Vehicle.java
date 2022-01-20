@@ -4,13 +4,16 @@
 
 import java.awt.*;
 
-public abstract class Vehicle {
+/**
+ * TODO Not Commented
+ */
+public abstract class Vehicle implements Movable {
 
-    private int nrDoors;         // Number of doors on the car
-    private double enginePower;  // Engine power of the car
-    private double currentSpeed; // The current speed of the car
-    private Color color;         // Color of the car
-    private String modelName;    // The car model name
+    private final int nrDoors;        // Number of doors on the car
+    private final double enginePower; // Engine power of the car
+    private double currentSpeed;      // The current speed of the car
+    private Color color;              // Color of the car
+    private final String modelName;   // The car model name
 
     public Vehicle(
         int nrDoors, 
@@ -35,14 +38,41 @@ public abstract class Vehicle {
 	    color = clr;
     }
 
-    // endof GETTERS n SETTERS
+    // endregion
 
-    public void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+    // region IMPLEMENTED METHODS
+
+    @Override
+    public void move() {
+
     }
 
+    @Override
+    public void turnLeft() {
+
+    }
+
+    @Override
+    public void turnRight() {
+
+    }
+
+    // endregion
+
+    /**
+     * Increases the speed of the vehicle.
+     * @param amount The factor to increase by.
+     */
+    public void incrementSpeed(double amount){
+	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount, enginePower);
+    }
+
+    /**
+     * Decreases the speed of the vehicle
+     * @param amount The factor to decrease by.
+     */
     public void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount, 0);
     }
 
     // TODO fix this method according to lab pm
