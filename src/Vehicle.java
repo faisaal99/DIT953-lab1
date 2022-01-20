@@ -14,6 +14,9 @@ public abstract class Vehicle implements Movable {
     private double currentSpeed;      // The current speed of the car
     private Color color;              // Color of the car
     private final String modelName;   // The car model name
+    private int x;               // The vehicles x-coordinate
+    private int y;               // The vehicles y-coordinate
+    // TODO Decide how direction should be represented
 
     public Vehicle(
         int nrDoors, 
@@ -24,6 +27,8 @@ public abstract class Vehicle implements Movable {
             this.enginePower  = enginePower;
             this.color        = color;
             this.modelName    = modelName;
+            this.x            = 0;
+            this.y            = 0;
     }
 
     // region GETTERS n SETTERS
@@ -33,10 +38,12 @@ public abstract class Vehicle implements Movable {
     public double getCurrentSpeed() { return currentSpeed; }
     public Color getColor()         { return color; }
     public String getModelName()    { return modelName; }
+    public int getX()               { return x; }
+    public int getY()               { return y; }
 
-    public void setColor(Color clr){
-	    color = clr;
-    }
+    public void setColor(Color clr) { color = clr; }
+    public void setY(int y)         { this.y = y; }
+    public void setX(int x)         { this.x = x; }
 
     // endregion
 
