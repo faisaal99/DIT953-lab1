@@ -12,6 +12,11 @@ public abstract class Vehicle implements Movable {
     private final String modelName;   // The car model name
     private int x;                    // The vehicles x-coordinate
     private int y;                    // The vehicles y-coordinate
+
+    // Properties for position and movement
+    private Position position;
+    private Direction direction;
+
     // TODO Decide how direction should be represented
 
     public Vehicle(
@@ -25,6 +30,9 @@ public abstract class Vehicle implements Movable {
             this.modelName    = modelName;
             this.x            = 0;
             this.y            = 0;
+
+            position = new Position(0, 0);
+            direction = Direction.DOWN;
     }
 
     // region GETTERS n SETTERS
@@ -47,7 +55,20 @@ public abstract class Vehicle implements Movable {
 
     @Override
     public void move() {
-
+        switch (direction) {
+            case UP:
+                position.setY(position.getY() - 1);
+                break;
+            case RIGHT:
+                position.setX(position.getX() + 1);
+                break;
+            case DOWN:
+                position.setY(position.getY() + 1);
+                break;
+            case LEFT:
+                position.setX(position.getX() - 1);
+                break;
+        }
     }
 
     @Override
@@ -101,4 +122,22 @@ public abstract class Vehicle implements Movable {
     }
 
     public abstract double speedFactor();
+
+    enum Direction {
+        UP, RIGHT, DOWN, LEFT
+    }
+
+    class Position {
+        int x, y;
+
+        public Position(int x, int y) {
+            this.x = x; 
+            this.y = y; 
+        }
+
+        public int getX() { return x; }
+        public int getY() { return y; }
+        public void setX(int x) { this.x = x; }
+        public void setY(int y) { this.y = y; }
+    }
 }
