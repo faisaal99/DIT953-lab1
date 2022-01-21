@@ -1,7 +1,3 @@
-/*public abstract ass_class Vehicle {
-    BigBooty hugo = new BigBooty();
-}*/
-
 import java.awt.*;
 
 /**
@@ -14,8 +10,8 @@ public abstract class Vehicle implements Movable {
     private double currentSpeed;      // The current speed of the car
     private Color color;              // Color of the car
     private final String modelName;   // The car model name
-    private int x;               // The vehicles x-coordinate
-    private int y;               // The vehicles y-coordinate
+    private int x;                    // The vehicles x-coordinate
+    private int y;                    // The vehicles y-coordinate
     // TODO Decide how direction should be represented
 
     public Vehicle(
