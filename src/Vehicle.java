@@ -55,30 +55,34 @@ public abstract class Vehicle implements Movable {
 
     @Override
     public void move() {
+        int speed = (int) getCurrentSpeed();
         switch (direction) {
-            case UP:
-                position.setY(position.getY() - 1);
-                break;
-            case RIGHT:
-                position.setX(position.getX() + 1);
-                break;
-            case DOWN:
-                position.setY(position.getY() + 1);
-                break;
-            case LEFT:
-                position.setX(position.getX() - 1);
-                break;
+            case UP    -> position.setY(position.getY() - speed);
+            case RIGHT -> position.setX(position.getX() + speed);
+            case DOWN  -> position.setY(position.getY() + speed);
+            case LEFT  -> position.setX(position.getX() - speed);
         }
     }
 
     @Override
     public void turnLeft() {
+        switch (direction) {
+            case UP    -> direction = Direction.LEFT;
+            case LEFT  -> direction = Direction.DOWN;
+            case DOWN  -> direction = Direction.RIGHT;
+            case RIGHT -> direction = Direction.UP;
+        }
 
     }
 
     @Override
     public void turnRight() {
-
+        switch (direction) {
+            case UP    -> direction = Direction.RIGHT;
+            case LEFT  -> direction = Direction.UP;
+            case DOWN  -> direction = Direction.LEFT;
+            case RIGHT -> direction = Direction.DOWN;
+        }
     }
 
     // endregion
