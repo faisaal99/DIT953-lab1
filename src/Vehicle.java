@@ -15,6 +15,14 @@ public abstract class Vehicle implements Movable {
     private Position position;
     private Direction direction;
 
+    /**
+     * Sole constructor.
+     * (For invocation by subclass constructors)
+     * @param nrDoors
+     * @param enginePower
+     * @param color
+     * @param modelName
+     */
     public Vehicle(
         int nrDoors, 
         double enginePower, 
@@ -35,13 +43,21 @@ public abstract class Vehicle implements Movable {
     public double getEnginePower()  { return enginePower; }
     public double getCurrentSpeed() { return currentSpeed; }
     public Color getColor()         { return color; }
-    public void setColor(Color clr) { color = clr; }
     public String getModelName()    { return modelName; }
+
+    public void setCurrentSpeed(double currentSpeed) {this.currentSpeed = currentSpeed;}
+    public void setColor(Color color) {this.color = color;}
+    public void setDirection(Direction direction) {this.direction = direction;}
 
     // endregion
 
     // region IMPLEMENTED METHODS
 
+    /**
+     * Changes the position of the vehicle.
+     * @see #getCurrentSpeed()
+     * @see #direction
+     */
     @Override
     public void move() {
         int speed = (int) getCurrentSpeed();
@@ -53,6 +69,9 @@ public abstract class Vehicle implements Movable {
         }
     }
 
+    /**
+     *
+     */
     @Override
     public void turnLeft() {
         switch (direction) {
