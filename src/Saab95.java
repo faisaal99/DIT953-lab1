@@ -3,7 +3,10 @@ import java.awt.*;
 public class Saab95 extends Vehicle {
 
     public boolean turboOn;
-    
+
+    /**
+     * Sole constructor
+     */
     public Saab95() {
         super(2, 125, Color.red, "Saab95");
 	    turboOn = false;
@@ -11,14 +14,25 @@ public class Saab95 extends Vehicle {
         stopEngine();
     }
 
+    /**
+     * Sets turboOn to true
+     */
     public void setTurboOn(){
 	    turboOn = true;
     }
 
+    /**
+     * Sets turboOn to false
+     */
     public void setTurboOff(){
 	    turboOn = false;
     }
-    
+
+
+    /**
+     * calculates the maximum possible acceleration and deceleration
+     * @return the maximum possible acceleration and deceleration for this object
+     */
     @Override
     public double speedFactor(){
         double turbo = 1;
