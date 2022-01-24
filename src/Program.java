@@ -6,6 +6,9 @@ public class Program {
         new Program().program();
     }
 
+    /**
+     * Executes the program
+     */
     void program() {
         Vehicle v = new Saab95();
 	    out.format("My vehicle is %s\n", v.getModelName());

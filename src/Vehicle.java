@@ -12,22 +12,23 @@ public abstract class Vehicle implements Movable {
     private final String modelName;   // The car model name
 
     // Properties for position and movement
-    private Position position;
+    private final Position position;
     private Direction direction;
 
     /**
-     * Sole constructor.
+     * Sole constructor
      * (For invocation by subclass constructors)
-     * @param nrDoors
-     * @param enginePower
-     * @param color
-     * @param modelName
+     * @param nrDoors The number of doors for the vehicle
+     * @param enginePower The power of the engine
+     * @param color The color of the class
+     * @param modelName The model of the car
      */
     public Vehicle(
         int nrDoors, 
         double enginePower, 
         Color color,
-        String modelName) {
+        String modelName
+    ) {
             this.nrDoors      = nrDoors;
             this.enginePower  = enginePower;
             this.color        = color;
@@ -45,9 +46,9 @@ public abstract class Vehicle implements Movable {
     public Color getColor()         { return color; }
     public String getModelName()    { return modelName; }
 
-    public void setCurrentSpeed(double currentSpeed) {this.currentSpeed = currentSpeed;}
-    public void setColor(Color color) {this.color = color;}
-    public void setDirection(Direction direction) {this.direction = direction;}
+    public void setCurrentSpeed(double currentSpeed) { this.currentSpeed = currentSpeed; }
+    public void setColor(Color color)                { this.color = color; }
+    public void setDirection(Direction direction)    { this.direction = direction; }
 
     // endregion
 
@@ -69,9 +70,6 @@ public abstract class Vehicle implements Movable {
         }
     }
 
-    /**
-     *
-     */
     @Override
     public void turnLeft() {
         switch (direction) {
@@ -96,6 +94,12 @@ public abstract class Vehicle implements Movable {
     // endregion
 
     /**
+     * Determines the speed factor
+     * @return The speed factor
+     */
+    protected abstract double speedFactor();
+
+    /**
      * Increases the speed of the vehicle.
      * @param amount The factor to increase by.
      */
@@ -113,7 +117,7 @@ public abstract class Vehicle implements Movable {
 
     /**
      * Accelerates the vehicle
-     * @param amount
+     * @param amount Intensity of acceleration (must be in the range [0, 1])
      */
     public void gas(double amount) {
         if(amount >= 0 && amount <= 1) {
@@ -121,7 +125,10 @@ public abstract class Vehicle implements Movable {
         }
     }
 
-    // TODO fix this method according to lab pm
+    /**
+     * Decelerates the vehicle
+     * @param amount Intensity of brake (must be in the range [0, 1])
+     */
     public void brake(double amount) {
         if(amount >= 0 && amount <= 1) {
             decrementSpeed(amount);
@@ -136,12 +143,16 @@ public abstract class Vehicle implements Movable {
 	    currentSpeed = 0;
     }
 
-    protected abstract double speedFactor();
-
+    /**
+     * Holds information about the direction of the vehicle
+     */
     enum Direction {
         UP, RIGHT, DOWN, LEFT
     }
 
+    /**
+     * Holds information about the location of the vehicle
+     */
     static class Position {
         int x, y;
 
