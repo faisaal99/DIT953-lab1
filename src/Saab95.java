@@ -31,7 +31,7 @@ public class Saab95 extends Vehicle {
 
     /**
      * calculates the maximum possible acceleration and deceleration
-     * @return the maximum possible acceleration and deceleration for this object
+     * @return the maximum possible acceleration and deceleration of this object
      */
     @Override
     public double speedFactor(){
