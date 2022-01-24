@@ -12,7 +12,7 @@ public abstract class Vehicle implements Movable {
     private final String modelName;   // The car model name
 
     // Properties for position and movement
-    private final Position position;
+    private Position position;
     private Direction direction;
 
     /**
@@ -29,10 +29,10 @@ public abstract class Vehicle implements Movable {
         Color color,
         String modelName
     ) {
-            this.nrDoors      = nrDoors;
-            this.enginePower  = enginePower;
-            this.color        = color;
-            this.modelName    = modelName;
+            this.nrDoors     = nrDoors;
+            this.enginePower = enginePower;
+            this.color       = color;
+            this.modelName   = modelName;
 
             position = new Position(0, 0);
             direction = Direction.DOWN;
@@ -45,10 +45,13 @@ public abstract class Vehicle implements Movable {
     public double getCurrentSpeed() { return currentSpeed; }
     public Color getColor()         { return color; }
     public String getModelName()    { return modelName; }
+    public Direction getDirection() { return direction; }
+    public Position getPosition()   { return position; }
 
     public void setCurrentSpeed(double currentSpeed) { this.currentSpeed = currentSpeed; }
     public void setColor(Color color)                { this.color = color; }
     public void setDirection(Direction direction)    { this.direction = direction; }
+    public void setPosition(Position position)       { this.position = position; }
 
     // endregion
 
@@ -63,9 +66,9 @@ public abstract class Vehicle implements Movable {
     public void move() {
         int speed = (int) getCurrentSpeed();
         switch (direction) {
-            case UP    -> position.setY(position.getY() - speed);
+            case UP    -> position.setY(position.getY() + speed);
             case RIGHT -> position.setX(position.getX() + speed);
-            case DOWN  -> position.setY(position.getY() + speed);
+            case DOWN  -> position.setY(position.getY() - speed);
             case LEFT  -> position.setX(position.getX() - speed);
         }
     }
@@ -120,9 +123,8 @@ public abstract class Vehicle implements Movable {
      * @param amount Intensity of acceleration (must be in the range [0, 1])
      */
     public void gas(double amount) {
-        if(amount >= 0 && amount <= 1) {
+        if (amount >= 0 && amount <= 1)
             incrementSpeed(amount);
-        }
     }
 
     /**
@@ -130,9 +132,8 @@ public abstract class Vehicle implements Movable {
      * @param amount Intensity of brake (must be in the range [0, 1])
      */
     public void brake(double amount) {
-        if(amount >= 0 && amount <= 1) {
+        if (amount >= 0 && amount <= 1)
             decrementSpeed(amount);
-        }
     }
 
     public void startEngine() {
@@ -165,5 +166,16 @@ public abstract class Vehicle implements Movable {
         public int getY() { return y; }
         public void setX(int x) { this.x = x; }
         public void setY(int y) { this.y = y; }
+
+        @Override
+        public boolean equals(Object o) {
+            if (o == null)
+                return false;
+
+            if (!(o instanceof Position p))
+                return false;
+
+            return p.x == this.x && p.y == this.y;
+        }
     }
 }
