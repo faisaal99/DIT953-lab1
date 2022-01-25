@@ -1,5 +1,8 @@
 import org.junit.*;
 
+import java.awt.*;
+import java.util.Objects;
+
 /**
  * Tests on the vehicle class
  */
@@ -103,10 +106,28 @@ public class TestVehicle {
 
     @Test
     public void testDoesMovingInXAxisWorkCorrectly() {
-        v.setPosition(new Vehicle.Position(0, 0));
-        v.setDirection(Vehicle.Direction.RIGHT);
+        s.setPosition(new Vehicle.Position(0, 0));
+        v.setPosition(new Vehicle.Position(0,0));
+        s.setDirection(Vehicle.Direction.RIGHT);
+        v.setDirection(Vehicle.Direction.LEFT);
 
+        s.move();
+        v.move();
 
+        assert(s.getPosition().getX() == 10 && v.getPosition().getX() == -10);
+    }
+
+    @Test
+    public void testDoesMovingInYAxisWorkCorrectly() {
+        s.setPosition(new Vehicle.Position(0, 0));
+        v.setPosition(new Vehicle.Position(0,0));
+        s.setDirection(Vehicle.Direction.DOWN);
+        v.setDirection(Vehicle.Direction.UP);
+
+        s.move();
+        v.move();
+
+        assert(s.getPosition().getY() == 10 && v.getPosition().getY() == -10);
     }
 
     @Test
@@ -116,4 +137,26 @@ public class TestVehicle {
 
         assert(s.getCurrentSpeed() == 0.1 && v.getCurrentSpeed() == 0.1);
     }
+
+    @Test
+    public void testDoesPositionEqualsWorkCorrectly(){
+        Object o = 10;
+        Saab95 s2 = new Saab95();
+        s2.setPosition(null);
+
+        assert (v.getPosition().equals(s.getPosition()));
+        assert (!(v.getPosition().equals(o)) );
+        assert (!(v.getPosition().equals(s2.getPosition())));
+    }
+
+    @Test
+    public void testDoesGettersWorkCorrectly(){
+
+        assert (s.getNrDoors() == 2 && v.getNrDoors() == 4);
+        assert (s.getColor() == Color.red && v.getColor() == Color.black);
+        assert (s.getModelName().equals("Saab95"));
+        assert (v.getModelName().equals("Volvo240"));
+    }
+
+
 }

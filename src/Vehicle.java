@@ -49,7 +49,6 @@ public abstract class Vehicle implements Movable {
     public Position getPosition()   { return position; }
 
     public void setCurrentSpeed(double currentSpeed) { this.currentSpeed = currentSpeed; }
-    public void setColor(Color color)                { this.color = color; }
     public void setDirection(Direction direction)    { this.direction = direction; }
     public void setPosition(Position position)       { this.position = position; }
 
@@ -66,13 +65,16 @@ public abstract class Vehicle implements Movable {
     public void move() {
         int speed = (int) getCurrentSpeed();
         switch (direction) {
-            case UP    -> position.setY(position.getY() + speed);
+            case UP    -> position.setY(position.getY() - speed);
             case RIGHT -> position.setX(position.getX() + speed);
-            case DOWN  -> position.setY(position.getY() - speed);
+            case DOWN  -> position.setY(position.getY() + speed);
             case LEFT  -> position.setX(position.getX() - speed);
         }
     }
 
+    /**
+     * Changes direction of the vehicle to the left.
+     */
     @Override
     public void turnLeft() {
         switch (direction) {
@@ -84,6 +86,9 @@ public abstract class Vehicle implements Movable {
 
     }
 
+    /**
+     * Changes direction of the vehicle to the right.
+     */
     @Override
     public void turnRight() {
         switch (direction) {
@@ -136,10 +141,16 @@ public abstract class Vehicle implements Movable {
             decrementSpeed(amount);
     }
 
+    /**
+     * Sets the vehicle's speed to barely moving.
+     */
     public void startEngine() {
 	    currentSpeed = 0.1;
     }
 
+    /**
+     * Sets the vehicle's speed to a complete stop.
+     */
     public void stopEngine() {
 	    currentSpeed = 0;
     }
