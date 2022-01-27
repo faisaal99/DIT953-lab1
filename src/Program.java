@@ -1,3 +1,5 @@
+// Written by: Faisal Akhtar, Hugo Nordlund, William Kangas
+
 import static java.lang.System.out;
 
 public class Program {

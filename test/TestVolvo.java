@@ -1,3 +1,5 @@
+// Written by: Faisal Akhtar, Hugo Nordlund, William Kangas
+
 import org.junit.*;
 import static org.junit.Assert.*;
 
