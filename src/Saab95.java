@@ -5,7 +5,7 @@ public class Saab95 extends Vehicle {
     /**
      * Makes the car run faster
      */
-    public boolean turboOn;
+    private boolean turboOn;
 
     /**
      * Sole constructor
@@ -36,7 +36,7 @@ public class Saab95 extends Vehicle {
      * @return the maximum possible acceleration and deceleration of this object
      */
     @Override
-    public double speedFactor(){
+    public double speedFactor() {
         double turbo = 1;
         
         if (turboOn)
