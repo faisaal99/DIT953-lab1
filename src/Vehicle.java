@@ -3,7 +3,7 @@
 import java.awt.*;
 
 /**
- * Ett fordon, har vanligtvis 3 hjul
+ * Class for holding information about a vehicle
  */
 public abstract class Vehicle implements IMovable {
 
@@ -36,7 +36,7 @@ public abstract class Vehicle implements IMovable {
             this.color       = color;
             this.modelName   = modelName;
 
-            position = new Position(0, 0);
+            position  = new Position(0, 0);
             direction = Direction.DOWN;
     }
 
@@ -50,6 +50,7 @@ public abstract class Vehicle implements IMovable {
     public Direction getDirection()    { return direction; }
     public Position  getPosition()     { return position; }
 
+    // Setters used for testing | Not for production
     public void setCurrentSpeed(double currentSpeed) { this.currentSpeed = currentSpeed; }
     public void setDirection(Direction direction)    { this.direction = direction; }
     public void setPosition(Position position)       { this.position = position; }
