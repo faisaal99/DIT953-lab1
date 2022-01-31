@@ -1,3 +1,4 @@
+import util.CarTransportTray;
 import util.Tray;
 
 import java.awt.*;
@@ -5,15 +6,12 @@ import java.awt.*;
 public class CarTransport extends Vehicle {
 
     Vehicle vehicle;
-    Tray tray;
+    CarTransportTray tray;
 
     public CarTransport() {
         super(2, 240, Color.BLACK, "CTT");
 
-        // Vehicle klassen är för nuvarande abstract och kan inte instantiseras
-        // vehicle = new Vehicle(2, 240, Color.BLACK, "CTT");
-
-
+        tray = new CarTransportTray();
     }
 
     @Override

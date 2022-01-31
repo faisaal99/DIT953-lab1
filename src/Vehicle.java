@@ -7,6 +7,7 @@ import java.awt.*;
  */
 public abstract class Vehicle implements IMovable {
 
+    // Todo Ta bort Abs
     private final int    nrDoors;      // Number of doors on the car
     private final double enginePower;  // Engine power of the car
     private double       currentSpeed; // The current speed of the car
