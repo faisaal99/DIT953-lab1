@@ -42,18 +42,19 @@ public abstract class Vehicle implements IMovable {
 
     // region GETTERS n SETTERS
 
-    public int       getNrDoors()      { return nrDoors; }
-    public double    getEnginePower()  { return enginePower; }
+    public int       getNrDoors()      { return nrDoors;      }
+    public double    getEnginePower()  { return enginePower;  }
     public double    getCurrentSpeed() { return currentSpeed; }
-    public Color     getColor()        { return color; }
-    public String    getModelName()    { return modelName; }
-    public Direction getDirection()    { return direction; }
-    public Position  getPosition()     { return position; }
+    public Color     getColor()        { return color;        }
+    public String    getModelName()    { return modelName;    }
+    public Direction getDirection()    { return direction;    }
+    public Position  getPosition()     { return position;     }
 
     // Setters used for testing | Not for production
     public void setCurrentSpeed(double currentSpeed) { this.currentSpeed = currentSpeed; }
-    public void setDirection(Direction direction)    { this.direction = direction; }
-    public void setPosition(Position position)       { this.position = position; }
+    public void setDirection(Direction direction)    { this.direction    = direction;    }
+    public void setPosition(Position position)       { this.position     = position;     }
+    public void setColor(Color color)                { this.color        = color;        }
 
     // endregion
 
