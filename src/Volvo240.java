@@ -7,6 +7,7 @@ public class Volvo240 extends Vehicle {
 
     public final static double trimFactor = 1.25;
 
+    Vehicle vehicle;
     /**
      * Sole constructor
      */

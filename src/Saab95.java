@@ -9,6 +9,7 @@ public class Saab95 extends Vehicle {
      */
     private boolean turboOn;
 
+    Vehicle vehicle;
     /**
      * Sole constructor
      */

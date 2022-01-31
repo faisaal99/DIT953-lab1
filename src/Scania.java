@@ -3,6 +3,7 @@ import java.awt.*;
 public class Scania extends Vehicle {
 
     int tray;
+    Vehicle vehicle;
 
     public Scania() {
         super(

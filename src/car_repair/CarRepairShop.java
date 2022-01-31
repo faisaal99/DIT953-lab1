@@ -1,7 +1,7 @@
 package car_repair;
 
 import java.util.List;
-import ;
+
 /**
  * Represents a car repair shop
  */
@@ -12,11 +12,13 @@ public class CarRepairShop {
      */
     int maximumCapacity;
 
-    List<> carsInStore;
+    // Stack may be better
+    List carsInStore;
 
     public CarRepairShop(int maximumCapacity) {
         this.maximumCapacity = maximumCapacity;
     }
+
 
     // TODO
 }
